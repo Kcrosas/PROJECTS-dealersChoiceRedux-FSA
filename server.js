@@ -4,6 +4,7 @@ const app = express();
 const path = require('path')
 
 app.use('/dist', express.static(path.join(__dirname, 'dist')))
+app.use('/media', express.static(path.join(__dirname, 'media')))
 
 app.get('/', (req, res, next) => res.sendFile(path.join(__dirname,'index.html')))
 
@@ -29,7 +30,7 @@ app.get('/motorcycles/:id', async(req,res,next) => {
 const bootup = async() => {
     try {
         await seed(); 
-        const port = process.env.PORT || 8000 
+        const port = process.env.PORT || 3000 
         app.listen(port, ()=>console.log(`Local port is ${port}`))
     }
     catch (error) {

@@ -18,23 +18,28 @@ const Motorcycles = conn.define("motorcycle", {
 
 
 const seed = async () => {
+    try {
     await conn.sync({ force: true})
-    Promise.all(
+    await Promise.all(
         memberData.forEach((e) => {
-            Rider.create({
+             Rider.create({
               name: e.name,
               bio: e.bio,
               memberDate: e.memberDate,
             })
         }),
         productsData.forEach((e) => {
-            Motorcycles.create({
+             Motorcycles.create({
               title: e.title,
               about: e.about,
               image: e.images,
             })
         })
     )
+    }
+    catch (error) { 
+        console.log(error)
+    }
 } 
 
 module.exports = {

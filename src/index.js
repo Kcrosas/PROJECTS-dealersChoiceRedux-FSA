@@ -1,4 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import App from './App'
+import Nav from './Nav'
 
-ReactDOM.render(<h3>Hello</h3>, document.getElementById('#root'))
+ReactDOM.render(
+    <div>
+        <Nav />
+        <App />
+    </div>, document.getElementById('#root'))
